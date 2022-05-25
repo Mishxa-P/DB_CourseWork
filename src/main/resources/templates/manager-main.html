@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Главная страница</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <h2>Личный кабинет менеджера</h2>
+    <p></p>
+    <h5>Приветствуем, <span th:text="${manager.name}"> </span> !</h5>
+
+  <div style="position:relative;left: -395px">
+    <p></p>
+    <form th:method="get" th:action="@{/manager/getAllGuests}">
+      <input type="submit"  class="btn btn-default" value="Все гости"/>
+    </form> </div>
+  <p></p>
+ <div style="position:relative;left: -395px">
+    <form th:method="get" th:action="@{/manager/getAllGuestsWithRenderedServices}">
+      <input type="submit"  class="btn btn-default" value="Все гости, заказавшие дополнительную услугу"/>
+    </form> </div>
+  <p></p>
+  <div style="position:relative; top: -105px">
+    <form th:method="get" th:action="@{/manager/getAllReservations}">
+      <input type="submit" class="btn btn-default" value="Все брони"/>
+    </form>
+    <p></p>
+    <form th:method="get" th:action="@{/manager/change/reservation/startdate}">
+      <input type="submit" class="btn btn-default" value="Изменить дату начала брони"/>
+    </form>
+    <p></p>
+    <form th:method="get" th:action="@{/manager/change/reservation/enddate}">
+      <input type="submit" class="btn btn-default" value="Изменить дату окончания брони"/>
+    </form>
+    <p></p>
+      <form th:method="get" th:action="@{/manager/getReservationRenderedServices}">
+        <input type="submit" class="btn btn-default" value="Показать все дополнительные услуги брони"/>
+      </form> </div>
+    <p></p>
+  <div style="position:relative; top: -100px">
+  <form th:method="get" th:action="@{/manager/delete/serviceFromReservation}">
+    <input type="submit" class="btn btn-default" value="Удалить дополнительную услугу у брони"/>
+  </form> </div>
+<p></p>
+    <div style="position:relative;left: +330px; top: -375px">
+        <form th:method="get" th:action="@{/manager/getInfo}">
+            <input type="submit"  class="btn btn-default" value="Посмотреть личную информацию"/>
+        </form> </div>
+    <p></p>
+
+      <a th:href="@{/logout}" class="list-group-item list-group-item-danger">Выход</a>
+    </div>
+  </div>
+</body>
+</html>

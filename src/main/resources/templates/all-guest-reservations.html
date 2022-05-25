@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Все брони</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Номер комнаты</th>
+        <th scope="col">Дата начала брони</th>
+        <th scope="col">Дата окончания брони</th>
+        <th scope="col">Всего к оплате</th>
+        <th scope="col">Добавить дополнительную услугу</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="reservation: ${reservations}">
+        <td><span th:text="${reservation.roomId}">Номер комнаты</span></td>
+        <td><span th:text="${reservation.startDayOfReservation}">Дата начала брони</span></td>
+        <td><span th:text="${reservation.endDayOfReservation}">Дата окончания брони</span></td>
+        <td><span th:text="${reservation.totalPayment}">Всего к оплате</span></td>
+        <td> <a th:href="@{/guest/add/service/{reservationId} (reservationId = ${reservation.reservationId})}" class="list-group-item">Добавить дополнительную услугу</a></td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/guest/}" class="list-group-item">Главная</a>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить бронь</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h2>Добавить бронь</h2>
+
+    <form th:method="POST" th:action="@{/guest/add/reservation}" th:object="${reservation}">
+        <span class="label label-info">Номер комнаты</span>
+        <input type="text" th:field="*{roomId}" id="roomId"/>
+        <br/>
+        <p></p>
+        <span class="label label-info">Дата начала брони</span>
+        <input type="date" th:field="*{startDayOfReservation}" id="startDayOfReservation"/>
+        <br/>
+        <p></p>
+        <span class="label label-info">Дата окончания брони</span>
+        <input type="date" th:field="*{endDayOfReservation}" id="endDayOfReservation"/>
+        <input type="submit" class="btn btn-default" value="Добавить"/>
+    </form><p></p>
+    <p></p>
+</div>
+<p></p>
+<a th:href="@{/guest/}" class="list-group-item">Главная</a>
+</body>
+</html>

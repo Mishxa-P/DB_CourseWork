@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Вычислить прибыль гостиницы за определённый период</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h2>Вычислить прибыль гостиницы за определённый период</h2>
+    <form th:method="POST" th:action="@{/admin/getTotalProfit}" th:object="${totalprofit}">
+        <span class="label label-info">Начальная дата</span>
+        <input type="date" th:field="*{startDate}" id="startDate"/>
+        <br/>
+        <p></p>
+        <span class="label label-info">Конечная дата</span>
+        <input type="date" th:field="*{endDate}" id="endDate"/>
+        <input type="submit" class="btn btn-default" value="Вычислить"/>
+    </form><p></p>
+    <p></p>
+</div>
+<p></p>
+<a th:href="@{/admin/}" class="list-group-item">Главная</a>
+</body>
+</html>

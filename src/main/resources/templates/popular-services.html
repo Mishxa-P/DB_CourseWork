@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Название услуги</th>
+        <th scope="col">Цена услуги</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="service: ${services}">
+        <td><span th:text="${service.serviceName}">Название услуги</span></td>
+        <td><span th:text="${service.serviceCost}">Цена услуги</span></td>
+    </tr>
+    </tbody>
+</table>
+<p></p>
+<a th:href="@{/admin/}" class="list-group-item">Главная</a>
+</body>
+</html>

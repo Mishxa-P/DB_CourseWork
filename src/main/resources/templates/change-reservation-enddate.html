@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Обновить дату окончания брони</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h2>Обновить дату окончания брони</h2>
+    <form th:method="POST" th:action="@{/manager/change/reservation/enddate}" th:object="${reservation}">
+        <span class="label label-info">Номер брони</span>
+        <input type="text" th:field="*{reservationId}" id="reservationId"/>
+        <br/>
+        <p></p>
+        <span class="label label-info">Дата окончания брони</span>
+        <input type="date" th:field="*{endDayOfReservation}" id="endDayOfReservation"/>
+        <input type="submit" class="btn btn-default" value="Обновить"/>
+    </form><p></p>
+    <p></p>
+</div>
+<a th:href="@{/manager/}" class="list-group-item">Главная</a>
+</body>
+</html>

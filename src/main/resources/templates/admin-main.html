@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Главная страница</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <h2>Личный кабинет администратора</h2>
+    <h5>Приветствуем, <span th:text="${admin.name}"> </span> !</h5>
+
+  <div style="position:relative;left: -395px">
+    <p></p>
+    <form th:method="get" th:action="@{/admin/getAllGuests}">
+      <input type="submit"  class="btn btn-default" value="Все гости"/>
+    </form> </div>
+  <p></p>
+  <div style="position:relative;left: -395px">
+  <form th:method="get" th:action="@{/admin/change/guest/info}">
+  <input type="submit"  class="btn btn-default" value="Изменить информацию гостя"/>
+  </form> </div>
+<p></p>
+  <div style="position:relative; top: -105px">
+<form th:method="get" th:action="@{/admin/getAllManagers}">
+  <input type="submit" class="btn btn-default" value="Все менеджеры"/>
+</form>
+<p></p>
+  <form th:method="get" th:action="@{/admin/delete/manager}">
+    <input type="submit" class="btn btn-default" value="Удалить менеджера"/>
+  </form>
+  <p></p>
+      <form th:method="get" th:action="@{/admin/register/manager}">
+          <input type="submit" class="btn btn-default" value="Зарегистрировать менеджера"/>
+      </form>
+      <p></p>
+      <form th:method="get" th:action="@{/admin/change/manager/info}">
+          <input type="submit" class="btn btn-default" value="Изменить информацию о менеджере"/>
+      </form>
+      <p></p>
+      <div style="position:relative; left: +350px; top:-217px">
+    <form th:method="get" th:action="@{/admin/getAllRooms}">
+      <input type="submit" class="btn btn-default" value="Все комнаты"/>
+    </form> </div>
+    <p></p>
+      <div style="position:relative; left: +350px; top:-217px">
+    <form th:method="get" th:action="@{/admin/getPopularRooms}">
+      <input type="submit" class="btn btn-default" value="Популярные комнаты"/>
+    </form> </div>
+  <p></p>
+  <p></p>
+      <div style="position:relative; left: +350px; top:-217px">
+    <form th:method="get" th:action="@{/admin/add/room}">
+      <input type="submit" class="btn btn-default" value="Добавить комнату"/>
+    </form> </div>
+  <p></p>
+      <div style="position:relative; left: +350px; top:-217px">
+    <form th:method="get" th:action="@{/admin/change/room/}">
+      <input type="submit" class="btn btn-default" value="Изменить комнату"/>
+    </form> </div>
+  <p></p>
+  <p></p>
+      <div style="position:relative; left: +350px; top:-217px">
+    <form th:method="get" th:action="@{/admin/delete/room}">
+      <input type="submit" class="btn btn-default" value="Удалить комнату"/>
+    </form> </div>
+  <p></p>
+  <p></p>
+    <div style="position:relative; left: +635px; top:-487px">
+    <form th:method="get" th:action="@{/admin/getAllServices}">
+      <input type="submit" class="btn btn-default" value="Все дополнительные услуги"/>
+    </form> </div>
+    <p></p>
+    <p></p>
+    <div style="position:relative; left: +635px; top:-487px">
+      <form th:method="get" th:action="@{/admin/getPopularServices}">
+        <input type="submit" class="btn btn-default" value="Популярные дополнительные услуги"/>
+      </form> </div>
+    <p></p>
+    <p></p>
+    <div style="position:relative; left: +635px; top:-487px">
+    <form th:method="get" th:action="@{/admin/getUnpopularServices}">
+      <input type="submit" class="btn btn-default" value="Непопулярные дополнительные услуги"/>
+    </form> </div>
+  <p></p>
+  <p></p>
+    <div style="position:relative; left: +635px; top:-487px">
+    <form th:method="get" th:action="@{/admin/add/service}">
+      <input type="submit" class="btn btn-default" value="Добавить дополнительную услугу"/>
+    </form> </div>
+  <p></p>
+  <p></p>
+    <div style="position:relative; left: +635px; top:-487px">
+    <form th:method="get" th:action="@{/admin/change/service/cost}">
+      <input type="submit" class="btn btn-default" value="Изменить стоимость услуги"/>
+    </form> </div>
+  <p></p>
+  <p></p>
+    <div style="position:relative; left: +635px; top:-487px">
+    <form th:method="get" th:action="@{/admin/change/service/description}">
+      <input type="submit" class="btn btn-default" value="Изменить описание услуги"/>
+    </form> </div>
+  <p></p>
+  <p></p>
+    <div style="position:relative; left: +635px; top:-487px">
+    <form th:method="get" th:action="@{/admin/delete/service}">
+      <input type="submit" class="btn btn-default" value="Удалить дополнительную услугу"/>
+    </form> </div>
+  <p></p>
+  <p></p>
+  <div style="position:relative; left: +985px; top: -863px">
+    <form th:method="get" th:action="@{/admin/getTotalProfit}">
+      <input type="submit" class="btn btn-default" value="Прибыль гостиницы"/>
+    </form> </div>
+  <p></p>
+      <div style="position:relative; left: +985px; top: -863px">
+          <form th:method="get" th:action="@{/admin/getInfo}">
+              <input type="submit"  class="btn btn-default" value="Посмотреть личную информацию"/>
+          </form> </div>
+      <p></p>
+
+  <div style="position:relative; left: -120px; top: -400px">
+    <a th:href="@{/logout}" class="list-group-item list-group-item-danger">Выход</a>
+  </div>
+</div>
+</body>
+</html>

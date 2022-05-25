@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Обновить информацию о менеджере</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h2>Обновить информацию о менеджере</h2>
+    <form th:method="POST" th:action="@{/admin/change/manager/info}" th:object="${manager}">
+        <span class="label label-info">Id менеджера</span>
+        <input type="text" th:field="*{managerId}" id="managerId"/>
+        <br/>
+        <p></p>
+        <span class="label label-info">Фамилия</span>
+        <input type="text" th:field="*{surname}" id="surname"/>
+        <br/>
+        <p></p>
+        <span class="label label-info">Имя</span>
+        <input type="text" th:field="*{name}" id="name"/>
+        <br/>
+        <p></p>
+        <span class="label label-info">Отчество</span>
+        <input type="text" th:field="*{patronymic}" id="patronymic"/>
+        <br/>
+        <p></p>
+        <span class="label label-info">Номер телефона</span>
+        <input type="text" th:field="*{phoneNumber}" id="phoneNumber"/>
+        <br/>
+        <p></p>
+        <input type="submit" class="btn btn-default" value="Обновить"/>
+    </form><p></p>
+    <p></p>
+</div>
+<p></p>
+<a th:href="@{/admin/}" class="list-group-item">Главная</a>
+</body>
+</html>

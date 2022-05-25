@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Обновить стоимость проживания комнаты</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <h2>Обновить стоимость проживания комнаты</h2>
+  <form th:method="POST" th:action="@{/admin/change/room/}" th:object="${room}">
+    <span class="label label-info">Номер комнаты</span>
+    <input type="text" th:field="*{roomId}" id="roomId"/>
+    <br/>
+    <p></p>
+    <span class="label label-info">Количество комнат</span>
+    <input type="text" th:field="*{roomNumber}" id="roomNumber"/>
+    <br/>
+    <p></p>
+    <span class="label label-info">Стоимость проживания</span>
+    <input type="text" th:field="*{costOfLiving}" id="costOfLiving"/>
+    <input type="submit" class="btn btn-default" value="Обновить"/>
+  </form><p></p>
+  <p></p>
+</div>
+<p></p>
+<a th:href="@{/admin/}" class="list-group-item">Главная</a>
+</body>
+</html>

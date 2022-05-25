@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация гостя</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #ededed;">
+<div style="background-color: #337ab7; height: 50px;"></div>
+<div class="container-fluid" style="margin-top: 30px;">
+
+    <div class="row col-lg-4 col-lg-offset-4" style="margin-top: 40px; background-color: #fff; padding: 20px; border: solid 1px #ddd;">
+        <form autocomplete="off" action="#" th:action="@{/admin/register/manager}" method="post" class="form-signin" role="form">
+            <h3 class="form-signin-heading">Форма регистрации</h3>
+            <div class="form-group">
+                <div class="">
+                    <input type="text" th:field="*{user.login}" name="user" placeholder="Логин" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="">
+                    <input type="password" th:field="*{user.password}" name="user" placeholder="Пароль" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="">
+                    <input type="text" th:field="*{manager.surname}" name="manager" placeholder="Фамилия" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="">
+                    <input type="text" th:field="*{manager.name}" name="guest" placeholder="Имя" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="">
+                    <input type="text" th:field="*{manager.patronymic}" name="manager" placeholder="Отчество" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="">
+                    <input type="text" th:field="*{manager.phoneNumber}" name="manager" placeholder="Номер телефона" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="">
+                    <button type="submit" class="btn btn-primary btn-block">Зарегистрировать менеджера</button>
+                </div>
+            </div>
+            <span th:utext="${successMessage}"></span>
+            <div class="alert alert-success alert-dismissible col-sm-12"
+                 th:if="${(bindingResult != null && bindingResult.getAllErrors() != null)}">
+                <button type="button" class="close" data-dismiss="alert"
+                        aria-hidden="true">×</button>
+                <ul th:each="data : ${bindingResult.getAllErrors()}">
+                    <li th:text="${data.getObjectName() + ' :: ' + data.getDefaultMessage()}"></li>
+                </ul>
+        </form>
+    </div>
+</div>
+<a th:href="@{/admin/}" class="list-group-item">Главная</a>
+</body>
+</html>
